@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Your Masterpiece</title>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %> <%- include('./partials/bg.ejs') %>
+
+        <% if (locals.user) { %>
+            <div class="container mt-3">
+              
+          <form action="/blog" method="post" enctype="multipart/form-data" style="
+          display: flex;
+          margin: auto;
+          flex-direction: column;
+          margin-top: 100px;
+          justify-self: center;
+          width: 60%;
+          overflow-x: hidden;
+          background: rgba(255, 255, 255, 0.4);
+          backdrop-filter: blur(10px);
+          border-radius: 10px;
+          padding: 20px;"  
+          >
+            <marquee class="text-center" style="font-weight: 500; font-size: 20px;">TAKE A MOMENT TO SHOW OTHERS WHAT YOU MADE !</marquee>
+          <div class="mb-3 mt-3" >
+          <label for="coverImage" class="form-label">Cover Image</label>
+          <input
+          type="file"
+          class="form-control"
+          id="coverImage"
+          name="coverImage"
+          aria-describedby="coverImage"
+          />
+          </div>
+          <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          aria-describedby="title"
+          />
+          </div>
+          <div class="mb-3">
+          <label for="body">Body</label>
+          <textarea name="body" class="form-control" id="body"></textarea>
+          </div>
+          <div class="mb-3">
+          <button class="btn btn-primary">Submit</button>
+          </div>
+          </form>
+        </div>
+        </div>
+        <% } else { %>
+        <div class="container" style="display: flex;
+          margin: auto;
+          flex-direction: column;
+          margin-top: 100px;
+          justify-self: center;
+          width: 60%;
+          overflow-x: hidden;
+          background: rgba(255, 255, 255, 0.4);
+          backdrop-filter: blur(10px);
+          border-radius: 10px;
+          padding: 20px;">
+          <h1 class="text-center">Please Sign in to Add Your Masterpiece</h1>
+          <div style="display: flex; align-self: center; justify-content: center; flex-direction: row; gap: 10px;">
+            <a href="/user/signin" class="btn btn-warning" style="padding: 11px 20px; width: fit-content;">Signin</a>
+            <a href="/" class="btn btn-warning" style="padding: 11px 20px; width: fit-content;">Back</a>
+          </div>
+        </div>
+        <% } %>
+    </body>
+    </html>
+    
+    <%- include('./partials/scripts.ejs') %>
+  </body>
+</html>

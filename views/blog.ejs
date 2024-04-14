@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arts</title>
+    <%- include('./partials/head.ejs') %>
+    <style>
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/bg.ejs') %>
+    <div class="container mt-3 " >
+      <div class="row row-cols-4" style="margin-top: 100px;">
+        <% blogs.forEach(blog => { %>
+        <div class="col">
+          <div class="card col" style="width: 18rem">
+            <img src="<%= blog.coverImageURL %>" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <a href="/Eachblog/<%= blog._id %>" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    
+    
+    <%- include('./partials/scripts.ejs') %>
+</body>
+</html>
+

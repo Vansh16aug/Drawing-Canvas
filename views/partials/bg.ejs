@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html{
+        scroll-behavior: smooth;
+      }
+      .bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        object-fit: cover; /* Ensure the background stays behind other content */
+      }
+
+      .trees {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+      }
+      .girl {
+        margin: 100px auto;
+        position: fixed;
+        scale: 0.65;
+        pointer-events: none;
+        animation: animateGirl 10s linear infinite;
+      }
+      .leaves {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .leaves .set {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      }
+
+      .leaves .set div {
+        position: absolute;
+        display: block;
+      }
+
+      .leaves .set div:nth-child(1) {
+        left: 20%;
+        animation: animate 20s linear infinite;
+      }
+      .leaves .set div:nth-child(2) {
+        left: 65%;
+        animation: animate 14s linear infinite;
+      }
+      .leaves .set div:nth-child(3) {
+        left: 35%;
+        animation: animate 12s linear infinite;
+      }
+      .leaves .set div:nth-child(4) {
+        left: 85%;
+        animation: animate 15s linear infinite;
+      }
+      .leaves .set div:nth-child(5) {
+        left: 5%;
+        animation: animate 18s linear infinite;
+      }
+      .leaves .set div:nth-child(6) {
+        left: 90%;
+        animation: animate 12s linear infinite;
+      }
+      .leaves .set div:nth-child(7) {
+        left: 5%;
+        animation: animate 14s linear infinite;
+      }
+      .leaves .set div:nth-child(8) {
+        left: 45%;
+        animation: animate 15s linear infinite;
+      }
+      .leaves .set div:nth-child(9) {
+        left: 100%;
+        animation: animate 16s linear infinite;
+      }
+
+      @keyframes animate {
+        0% {
+          opacity: 0;
+          top: -10%;
+          transform: translateX(20px) rotate(0deg);
+        }
+        10% {
+          opacity: 1;
+        }
+        20% {
+          transform: translateX(-20px) rotate(45deg);
+        }
+        40% {
+          transform: translateX(-20px) rotate(90deg);
+        }
+        60% {
+          transform: translateX(20px) rotate(180deg);
+        }
+        80% {
+          transform: translateX(-20px) rotate(45deg);
+        }
+        100% {
+          top: 110%;
+          transform: translateX(20px) rotate(225deg);
+        }
+      }
+      @keyframes animateGirl {
+        0% {
+          transform: translateX(calc(100% + 100vw));
+        }
+        50% {
+          transform: translateX(calc(-100% - 100vw));
+        }
+        50.01% {
+          transform: translateX(calc(-100% - 100vw)) rotateY(180deg);
+        }
+        100% {
+          transform: translateX(calc(-100% + 100vw)) rotateY(180deg);
+        }
+      }
+    </style>
+  </head>
+  <!-- <body style="overflow: hidden"> -->
+  <body>
+    <section>
+      <div class="leaves">
+        <div class="set">
+          <div><img src="/images/leaf_01.png" /></div>
+          <div><img src="/images/leaf_02.png" /></div>
+          <div><img src="/images/leaf_03.png" /></div>
+          <div><img src="/images/leaf_04.png" /></div>
+          <div><img src="/images/leaf_01.png" /></div>
+          <div><img src="/images/leaf_02.png" /></div>
+          <div><img src="/images/leaf_03.png" /></div>
+          <div><img src="/images/leaf_04.png" /></div>
+        </div>
+      </div>
+      <img src="/images/bg.jpg" class="bg" />
+      <img src="/images/girl.png" class="girl" />
+      <img src="/images/trees.png" class="trees" />
+    </section>
+    
+    <!-- <script>
+      //scroll animation
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 200) {
+            document.querySelector('.section1').style.transition = 'opacity 1s ease-in-out';
+            document.querySelector('.section1').style.opacity = '0';
+        } else {
+            document.querySelector('.section1').style.transition = 'opacity 1s ease-in-out';
+            document.querySelector('.section1').style.opacity = '1';
+        }
+      });
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 900) {
+            document.querySelector('.section2').style.transition = 'opacity 1s ease-in-out';
+            document.querySelector('.section2').style.opacity = '0';
+        } else {
+            document.querySelector('.section2').style.transition = 'opacity 1s ease-in-out';
+            document.querySelector('.section2').style.opacity = '1';
+        }
+      });
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 1600) {
+            document.querySelector('.section3').style.transition = 'opacity 1s ease-in-out';
+            document.querySelector('.section3').style.opacity = '0';
+        } else {
+            document.querySelector('.section3').style.transition = 'opacity 1s ease-in-out';
+            document.querySelector('.section3').style.opacity = '1';
+        }
+      });
+
+    </script> -->
+  </body>
+</html>
