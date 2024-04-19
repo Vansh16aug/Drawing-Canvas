@@ -83,12 +83,11 @@
 
   <body>
     <%- include('./partials/nav.ejs') %> <%- include('./partials/bg.ejs') %>
-
     <div
       style="
-        z-index: 999;
+        z-index: 999999999;
         display: flex;
-        margin: auto;
+        margin: auto; 
         flex-direction: column;
         margin-top: 80px;
         justify-items: center;
@@ -100,7 +99,7 @@
         padding: 20px;
       "
     >
-      <div class="container mt-4">
+      <div class="container mt-4" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <h1 style="font-size: 28px; color: #333; text-align: center">
           <strong><%= blog.title.toUpperCase() %></strong>
         </h1>
@@ -108,28 +107,31 @@
           src="<%= blog.coverImageURL %>"
           class="yo cool-image"
           width="700px"
-          style="display: flex; align-items: center; justify-items: center"
+          style="display: flex; align-items: center; justify-items: center; "
         />
         <div class="container mt-4" style="word-wrap: break-word;">
         <p class="mt-3"><%= blog.body %></p>
         </div>
       </div>
+      <div
+      class="container mt-1"
+      style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); padding: 10px; border-radius: 8px; max-width: 50%;  "
+        >
+      
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="<%= blog.createdBy.profileImage %>" width="50px" height="50px" style="border-radius: 50%; margin-bottom: 10px;" />
       </div>
-    </div>
-    <div
-      class="container mt-4"
-      style="text-align: center; justify-content: center"
-    >
-      <% if (blog.createdBy && blog.createdBy.profileImageURL) { %>
-      <img src="<%= blog.createdBy.profileImageURL %>" width="50px" />
-      <% } %>
+      
+
 
       <div style="display: flex; justify-content: center; align-items: center">
-        <p style="text-align: center; font-weight: 500">
-           <% if (blog.createdBy &&
-          blog.createdBy.fullName) { %> <%= blog.createdBy.fullName %> <% } %>
+        <p style="text-align: center; font-weight: 500; margin-bottom: 5px;">
+        <%= blog.createdBy.fullName.toUpperCase() %> 
         </p>
       </div>
+      </div>
+    </div>
+    
       <div class="container mt-3 " style="background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(10px);">
       <h1>Comments (<%= comments.length %>)</h1>
@@ -148,17 +150,14 @@
       </form>
 
       <% } %>
-      <div class="mt-3" >
+      <div class="mt-3" style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); padding: 10px; border-radius: 8px;">
         <% comments.forEach(comment => { %>
-        <div>
-          <% if (comment.createdBy &&
-          comment.createdBy.profileImageURL) { %>
-             <img src="<%= comment.createdBy.profileImageURL %>" width="50px" />
-             <% } %>
-          
-          <% if (comment.createdBy &&
-          comment.createdBy.fullName) { %> <%= comment.createdBy.fullName %> <% } %>
-          <pre><%= comment.content %></pre>
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+          <img src="<%= comment.createdBy.profileImage %>" width="50px" height="50px" style="border-radius: 50%; margin-right: 10px;" />
+          <div>
+        <p style="font-weight: 500; margin-bottom: 5px;"><%= comment.createdBy.fullName.toUpperCase() %></p>
+        <pre style="white-space: pre-wrap; word-wrap: break-word;"><%= comment.content %></pre>
+          </div>
         </div>
         <% }) %>
       </div>
