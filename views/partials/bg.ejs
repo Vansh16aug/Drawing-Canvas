@@ -124,17 +124,21 @@
         }
       }
       @keyframes animateGirl {
+        /* This moves the element to the right, completely off-screen to the right */
         0% {
-          transform: translateX(calc(100% + 100vw));
+          transform: translateX(calc(100% + 100vw));  
         }
+        /* This moves the element to the left, completely off-screen to the left */
         50% {
           transform: translateX(calc(-100% - 100vw));
         }
+        /* flipes the image and moves to left  */
         50.01% {
           transform: translateX(calc(-100% - 100vw)) rotateY(180deg);
         }
+        /* flipes the image and moves to right */
         100% {
-          transform: translateX(calc(-100% + 100vw)) rotateY(180deg);
+          transform: translateX(calc(100% + 100vw)) rotateY(180deg);
         }
       }
     </style>
